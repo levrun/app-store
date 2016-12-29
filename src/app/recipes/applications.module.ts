@@ -22,4 +22,4 @@ import { SharedModule } from '../shared/shared.module';
   imports: [SharedModule, ReactiveFormsModule, applicationsRouting]
 
 })
-export class RecipesModule {}
+export class ApplicationsModule {}
