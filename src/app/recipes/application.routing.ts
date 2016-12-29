@@ -13,4 +13,4 @@ const RECIPE_ROUTES: Routes = [
   ]}
 ];
 
-export const recipesRouting = RouterModule.forChild(RECIPE_ROUTES);
+export const applicationsRouting = RouterModule.forChild(RECIPE_ROUTES);

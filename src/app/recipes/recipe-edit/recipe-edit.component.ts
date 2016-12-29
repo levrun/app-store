@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
-import { RecipeService } from '../recipe.service';
-import { Recipe } from '../recipe';
+import { ApplicationService } from '../application.service';
+import { Application } from '../application';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -16,11 +16,11 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   recipeForm: FormGroup;
   private recipeIndex: number;
   private subscription: Subscription;
-  private recipe: Recipe;
+  private application: Application;
   private isNew = true;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService,
+              private applicationService: ApplicationService,
               private formBuilder: FormBuilder,
               private router: Router) { }
 
@@ -30,10 +30,10 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         if(params.hasOwnProperty('id')) {
           this.isNew = false;
           this.recipeIndex = +params['id'];
-          this.recipe = this.recipeService.getRecipe(this.recipeIndex);
+          this.application = this.applicationService.getRecipe(this.recipeIndex);
         } else {
           this.isNew = true;
-          this.recipe = null;
+          this.application = null;
         }
         console.log(this.isNew);
         this.initForm();
@@ -58,13 +58,13 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
     if(!this.isNew) {
 
-      if(this.recipe.hasOwnProperty('ingredients')) {
-        for(let i = 0; i < this.recipe.ingredients.length; i++) {
+      if(this.application.hasOwnProperty('ingredients')) {
+        for(let i = 0; i < this.application.ingredients.length; i++) {
           recipeIngredients.push(
             new FormGroup(
               {
-                name: new FormControl(this.recipe.ingredients[i].name, Validators.required),
-                amount: new FormControl(this.recipe.ingredients[i].amount, [
+                name: new FormControl(this.application.ingredients[i].name, Validators.required),
+                amount: new FormControl(this.application.ingredients[i].amount, [
                   Validators.required,
                   Validators.pattern("\\d+")])
               }
@@ -73,9 +73,9 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         }
       }
 
-      recipeName = this.recipe.name;
-      recipeImageUrl = this.recipe.imagePath;
-      recipeContent = this.recipe.description;
+      recipeName = this.application.name;
+      recipeImageUrl = this.application.imagePath;
+      recipeContent = this.application.description;
     }
 
     this.recipeForm = this.formBuilder.group({
@@ -89,11 +89,11 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const newRecipe = this.recipeForm.value;
+    const newApplication = this.recipeForm.value;
     if(this.isNew) {
-      this.recipeService.addRecipe(newRecipe);
+      this.applicationService.addRecipe(newApplication);
     } else {
-      this.recipeService.editRecipe(this.recipe, newRecipe);
+      this.applicationService.editRecipe(this.application, newApplication);
     }
 
     this.navigateBack();

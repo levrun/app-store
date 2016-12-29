@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Recipe } from '../recipe';
-import { RecipeService } from '../recipe.service';
+import { Application } from '../application';
+import { ApplicationService } from '../application.service';
 
 @Component({
   selector: 'rb-recipe-list',
   templateUrl: 'recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [];
+  applications: Application[] = [];
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private applicationService: ApplicationService) {}
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes();
-    this.recipeService.recipesChanged.subscribe(
-      (recipes: Recipe[]) => this.recipes = recipes
+    this.applications = this.applicationService.getApplications();
+    this.applicationService.recipesChanged.subscribe(
+      (applications: Application[]) => this.applications = applications
     );
   }
 

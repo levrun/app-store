@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RecipeService } from './recipes/recipe.service';
+import { ApplicationService } from './recipes/application.service';
 
 @Component({
   selector: 'rb-root',
   templateUrl: './app.component.html',
-  providers: [ RecipeService ]
+  providers: [ ApplicationService ]
 })
 export class AppComponent {
 

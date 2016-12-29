@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RecipeService } from './recipes/recipe.service';
+import { ApplicationService } from './recipes/application.service';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 
 @Component({
@@ -9,7 +9,7 @@ import { CollapseModule } from 'ng2-bootstrap/collapse';
 export class HeaderComponent {
   public isCollapsed:boolean = false;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private applicationService: ApplicationService) {}
 
    public collapsed(event:any):void {
       console.log(event);
@@ -20,14 +20,14 @@ export class HeaderComponent {
     }
 
   onStore() {
-    this.recipeService.storeData().subscribe(
+    this.applicationService.storeData().subscribe(
       data => console.log(data),
       error => console.log(error)
     );
   }
 
   onFetch() {
-    this.recipeService.fetchData();
+    this.applicationService.fetchData();
   }
 
 
