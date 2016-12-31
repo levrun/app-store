@@ -25,19 +25,19 @@ export class ApplicationService {
     return this.applications;
   }
 
-  getRecipe(id: number) {
+  getApp(id: number) {
     return this.applications[id];
   }
 
-  deleteRecipe(application: Application) {
+  deleteApp(application: Application) {
     this.applications.splice(this.applications.indexOf(application), 1);
   }
 
-  addRecipe(application: Application) {
+  addApp(application: Application) {
     this.applications.push(application);
   }
 
-  editRecipe(oldApplication: Application, newApplication: Application) {
+  editApp(oldApplication: Application, newApplication: Application) {
     this.applications[this.applications.indexOf(oldApplication)] = newApplication;
   }
 

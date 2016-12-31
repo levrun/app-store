@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Application } from "./application";
 
 @Component({
-  selector: 'as-recipes',
+  selector: 'as-apps',
   templateUrl: 'apps.component.html'
 })
 export class AppsComponent implements OnInit {

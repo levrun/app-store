@@ -27,7 +27,7 @@ export class AppDetailComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
         this.appIndex = params['id'];
-        this.selectedApplication = this.applicatonService.getRecipe(this.appIndex);
+        this.selectedApplication = this.applicatonService.getApp(this.appIndex);
       }
     );
   }
@@ -37,7 +37,7 @@ export class AppDetailComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    this.applicatonService.deleteRecipe(this.selectedApplication);
+    this.applicatonService.deleteApp(this.selectedApplication);
     this.router.navigate(['/apps']);
   }
 

@@ -3,10 +3,10 @@ import { Component, Input } from '@angular/core';
 import { Application } from '../application';
 
 @Component({
-  selector: 'as-recipe-item',
-  templateUrl: 'recipe-item.component.html'
+  selector: 'as-app-item',
+  templateUrl: 'app-item.component.html'
 })
-export class RecipeItemComponent {
+export class AppItemComponent {
   @Input() application: Application;
   @Input() applicationId: number;
 

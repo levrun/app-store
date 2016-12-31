@@ -4,10 +4,10 @@ import { Application } from '../application';
 import { ApplicationService } from '../application.service';
 
 @Component({
-  selector: 'as-recipe-list',
-  templateUrl: 'recipe-list.component.html'
+  selector: 'as-app-list',
+  templateUrl: 'app-list.component.html'
 })
-export class RecipeListComponent implements OnInit {
+export class AppListComponent implements OnInit {
   applications: Application[] = [];
 
   constructor(private applicationService: ApplicationService) {}

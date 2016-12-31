@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs/Rx';
 export class AppEditComponent implements OnInit, OnDestroy {
 
   recipeForm: FormGroup;
-  private recipeIndex: number;
+  private appIndex: number;
   private subscription: Subscription;
   private application: Application;
   private isNew = true;
@@ -29,8 +29,8 @@ export class AppEditComponent implements OnInit, OnDestroy {
       (params: any) => {
         if(params.hasOwnProperty('id')) {
           this.isNew = false;
-          this.recipeIndex = +params['id'];
-          this.application = this.applicationService.getRecipe(this.recipeIndex);
+          this.appIndex = +params['id'];
+          this.application = this.applicationService.getApp(this.appIndex);
         } else {
           this.isNew = true;
           this.application = null;
@@ -91,9 +91,9 @@ export class AppEditComponent implements OnInit, OnDestroy {
   onSubmit() {
     const newApplication = this.recipeForm.value;
     if(this.isNew) {
-      this.applicationService.addRecipe(newApplication);
+      this.applicationService.addApp(newApplication);
     } else {
-      this.applicationService.editRecipe(this.application, newApplication);
+      this.applicationService.editApp(this.application, newApplication);
     }
 
     this.navigateBack();
