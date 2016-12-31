@@ -8,10 +8,10 @@ import { Application } from '../application';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'as-recipe-edit',
-  templateUrl: './recipe-edit.component.html'
+  selector: 'as-app-edit',
+  templateUrl: './app-edit.component.html'
 })
-export class RecipeEditComponent implements OnInit, OnDestroy {
+export class AppEditComponent implements OnInit, OnDestroy {
 
   recipeForm: FormGroup;
   private recipeIndex: number;

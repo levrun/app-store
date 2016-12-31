@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class AppDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  private recipeIndex: number;
+  private appIndex: number;
   selectedApplication: Application;
 
 
@@ -26,19 +26,19 @@ export class AppDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
-        this.recipeIndex = params['id'];
-        this.selectedApplication = this.applicatonService.getRecipe(this.recipeIndex);
+        this.appIndex = params['id'];
+        this.selectedApplication = this.applicatonService.getRecipe(this.appIndex);
       }
     );
   }
 
   onEdit() {
-    this.router.navigate(['/recipes', this.recipeIndex, 'edit']);
+    this.router.navigate(['/apps', this.appIndex, 'edit']);
   }
 
   onDelete() {
     this.applicatonService.deleteRecipe(this.selectedApplication);
-    this.router.navigate(['/recipes']);
+    this.router.navigate(['/apps']);
   }
 
   onAddToShoppingList() {
