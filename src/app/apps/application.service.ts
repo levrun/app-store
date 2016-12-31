@@ -46,11 +46,11 @@ export class ApplicationService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.put('https://angular2-course-8b269.firebaseio.com/recipes.json', body, {headers: headers});
+    return this.http.put('https://angular2-course-8b269.firebaseio.com/apps.json', body, {headers: headers});
   }
 
   fetchData() {
-    return this.http.get('https://angular2-course-8b269.firebaseio.com/recipes.json')
+    return this.http.get('https://angular2-course-8b269.firebaseio.com/apps.json')
       .map((response: Response) => response.json())
       .subscribe(
         (data: Application[]) => {
