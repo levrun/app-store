@@ -4,7 +4,7 @@ import { Ingredient } from '../shared/ingredient';
 import { ShoppingListService } from "./shopping-list.service";
 
 @Component({
-  selector: 'rb-shopping-list-add',
+  selector: 'as-shopping-list-add',
   templateUrl: 'shopping-list-add.component.html'
 })
 export class ShoppingListAddComponent implements OnChanges {

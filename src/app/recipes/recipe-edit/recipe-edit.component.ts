@@ -8,7 +8,7 @@ import { Application } from '../application';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'rb-recipe-edit',
+  selector: 'as-recipe-edit',
   templateUrl: './recipe-edit.component.html'
 })
 export class RecipeEditComponent implements OnInit, OnDestroy {

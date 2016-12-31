@@ -3,7 +3,7 @@ import { ApplicationService } from './recipes/application.service';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 
 @Component({
-  selector: 'rb-header',
+  selector: 'as-header',
   templateUrl: 'header.component.html'
 })
 export class HeaderComponent {

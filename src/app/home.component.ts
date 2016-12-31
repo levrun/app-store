@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'rb-home',
+  selector: 'as-home',
   template: `
       <h1>Hello to App Store!</h1>
   `,

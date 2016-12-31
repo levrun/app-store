@@ -4,7 +4,7 @@ import { Application } from '../application';
 import { ApplicationService } from '../application.service';
 
 @Component({
-  selector: 'rb-recipe-list',
+  selector: 'as-recipe-list',
   templateUrl: 'recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
