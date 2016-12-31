@@ -31,4 +31,4 @@ App divided into several components and modules:
 * CoreModule - DropdownDirective, HomeComponent
 * ShoppingListModule - ShoppingListComponent, ShoppingListAddComponent
 * SharedModule - just for the sake of showing how to share CommonModule to other modules
-* ApplicationsModule - AppsComponent, RecipeListComponent, RecipeItemComponent, RecipeDetailComponent, RecipeEditComponent, AppsStartComponent
+* ApplicationsModule - AppsComponent, AppListComponent, AppItemComponent, AppDetailComponent, AppEditComponent, AppsStartComponent

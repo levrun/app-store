@@ -14,7 +14,7 @@ export class AppListComponent implements OnInit {
 
   ngOnInit() {
     this.applications = this.applicationService.getApplications();
-    this.applicationService.recipesChanged.subscribe(
+    this.applicationService.appsChanged.subscribe(
       (applications: Application[]) => this.applications = applications
     );
   }

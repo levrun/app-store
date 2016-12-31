@@ -6,7 +6,7 @@ import "rxjs/Rx";
 
 @Injectable()
 export class ApplicationService {
-  recipesChanged = new EventEmitter<Application[]>();
+  appsChanged = new EventEmitter<Application[]>();
 
   private applications: Application[] = [
     new Application('Schnitzel', 'Very tasty', 'https://smartcoderteam.github.io/images/alexei.jpg', [
@@ -55,7 +55,7 @@ export class ApplicationService {
       .subscribe(
         (data: Application[]) => {
           this.applications = data;
-          this.recipesChanged.emit(this.applications);
+          this.appsChanged.emit(this.applications);
         }
       )
   }
