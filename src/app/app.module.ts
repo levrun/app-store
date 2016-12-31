@@ -5,10 +5,13 @@ import { CollapseModule } from 'ng2-bootstrap/collapse';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
+
 import { ShoppingListService } from "./shopping-list/shopping-list.service";
-import { routing } from "./app.routing";
 import { ShoppingListModule } from "./shopping-list/shopping-list.module";
+
 import { CoreModule } from "./core.module";
+
+import { routing } from "./app.routing";
 
 @NgModule({
   declarations: [
