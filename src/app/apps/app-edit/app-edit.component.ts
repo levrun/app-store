@@ -51,16 +51,16 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   private initForm() {
-    let recipeName = '';
-    let recipeImageUrl = '';
-    let recipeContent = '';
-    let recipeIngredients: FormArray = new FormArray([]);
+    let appName = '';
+    let appImageUrl = '';
+    let appContent = '';
+    let appIngredients: FormArray = new FormArray([]);
 
     if(!this.isNew) {
 
       if(this.application.hasOwnProperty('ingredients')) {
         for(let i = 0; i < this.application.ingredients.length; i++) {
-          recipeIngredients.push(
+          appIngredients.push(
             new FormGroup(
               {
                 name: new FormControl(this.application.ingredients[i].name, Validators.required),
@@ -73,16 +73,16 @@ export class AppEditComponent implements OnInit, OnDestroy {
         }
       }
 
-      recipeName = this.application.name;
-      recipeImageUrl = this.application.imagePath;
-      recipeContent = this.application.description;
+      appName = this.application.name;
+      appImageUrl = this.application.imagePath;
+      appContent = this.application.description;
     }
 
     this.appForm = this.formBuilder.group({
-      name: [recipeName, Validators.required],
-      imagePath: [recipeImageUrl, Validators.required],
-      description: [recipeContent, Validators.required],
-      ingredients: recipeIngredients
+      name: [appName, Validators.required],
+      imagePath: [appImageUrl, Validators.required],
+      description: [appContent, Validators.required],
+      ingredients: appIngredients
     });
 
 
