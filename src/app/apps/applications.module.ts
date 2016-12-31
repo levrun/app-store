@@ -6,7 +6,7 @@ import { AppsStartComponent } from './apps-start.component';
 import { AppsComponent } from './apps.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { AppDetailComponent } from './app-detail/app-detail.component';
 import { applicationsRouting } from './application.routing';
 import { SharedModule } from '../shared/shared.module';
 
@@ -15,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     AppsComponent,
     RecipeListComponent,
     RecipeItemComponent,
-    RecipeDetailComponent,
+    AppDetailComponent,
     RecipeEditComponent,
     AppsStartComponent
   ],
