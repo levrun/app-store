@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class AppEditComponent implements OnInit, OnDestroy {
 
-  recipeForm: FormGroup;
+  appForm: FormGroup;
   private appIndex: number;
   private subscription: Subscription;
   private application: Application;
@@ -78,7 +78,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
       recipeContent = this.application.description;
     }
 
-    this.recipeForm = this.formBuilder.group({
+    this.appForm = this.formBuilder.group({
       name: [recipeName, Validators.required],
       imagePath: [recipeImageUrl, Validators.required],
       description: [recipeContent, Validators.required],
@@ -89,7 +89,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const newApplication = this.recipeForm.value;
+    const newApplication = this.appForm.value;
     if(this.isNew) {
       this.applicationService.addApp(newApplication);
     } else {
@@ -104,7 +104,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onAddItem(name: string, amount: string) {
-      (<FormArray>this.recipeForm.controls['ingredients']).push(
+      (<FormArray>this.appForm.controls['ingredients']).push(
         new FormGroup(
           {
             name: new FormControl(name, Validators.required),
@@ -117,7 +117,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onRemoveItem(index: number) {
-    (<FormArray>this.recipeForm.controls['ingredients']).removeAt(index);
+    (<FormArray>this.appForm.controls['ingredients']).removeAt(index);
   }
 
 }
