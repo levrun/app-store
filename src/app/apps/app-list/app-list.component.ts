@@ -13,10 +13,10 @@ export class AppListComponent implements OnInit {
   constructor(private applicationService: ApplicationService) {}
 
   ngOnInit() {
-    this.applications = this.applicationService.getApplications();
     this.applicationService.appsChanged.subscribe(
       (applications: Application[]) => this.applications = applications
     );
+    this.applicationService.getApplications();
   }
 
 }

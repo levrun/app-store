@@ -22,7 +22,7 @@ export class ApplicationService {
   constructor(private http: Http) { }
 
   getApplications() {
-    return this.applications;
+    this.fetchData();
   }
 
   getApp(id: number) {
