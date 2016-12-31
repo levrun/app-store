@@ -5,7 +5,7 @@ import { HomeComponent } from "./home.component";
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'recipes', loadChildren: 'app/recipes/applications.module#ApplicationsModule' },
+  { path: 'apps', loadChildren: 'app/recipes/applications.module#ApplicationsModule' },
   { path: 'shopping-list', component: ShoppingListComponent }
 ];
 
