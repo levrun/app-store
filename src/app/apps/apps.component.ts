@@ -4,9 +4,9 @@ import { Application } from "./application";
 
 @Component({
   selector: 'as-recipes',
-  templateUrl: 'recipes.component.html'
+  templateUrl: 'apps.component.html'
 })
-export class RecipesComponent implements OnInit {
+export class AppsComponent implements OnInit {
   selectedApplication: Application;
 
   constructor() {}
