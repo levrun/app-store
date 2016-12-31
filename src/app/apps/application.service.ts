@@ -29,6 +29,9 @@ export class ApplicationService {
   }
 
   addAppCategory(applicationCategory: ApplicationCategory) {
+    if(this.applicationsCategories === null) {
+      this.applicationsCategories = [];
+    }
     this.applicationsCategories.push(applicationCategory);
     this.storeData().subscribe(
       data => console.log(data),
@@ -50,11 +53,11 @@ export class ApplicationService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.put('https://angular2-course-8b269.firebaseio.com/apps.json', body, {headers: headers});
+    return this.http.put('https://angular2-course-8b269.firebaseio.com/categories.json', body, {headers: headers});
   }
 
   fetchData() {
-    return this.http.get('https://angular2-course-8b269.firebaseio.com/apps.json')
+    return this.http.get('https://angular2-course-8b269.firebaseio.com/categories.json')
       .map((response: Response) => response.json())
       .subscribe(
         (data: ApplicationCategory[]) => {
