@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Application } from '../application';
+import { Application } from '../models/application';
 
 @Component({
   selector: 'as-app-item',

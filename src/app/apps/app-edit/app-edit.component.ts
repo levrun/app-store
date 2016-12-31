@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { ApplicationService } from '../application.service';
-import { Application } from '../application';
+import { Application } from '../models/application';
 
 import { Subscription } from 'rxjs/Rx';
 

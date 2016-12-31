@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Application } from "../application";
+import { Application } from "../models/application";
 import { ShoppingListService } from "../../shopping-list/shopping-list.service";
 import { ApplicationService } from '../application.service';
 
