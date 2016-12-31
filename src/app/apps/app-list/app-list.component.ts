@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Application } from '../models/application';
+import { ApplicationCategory } from '../models/application-category';
 import { ApplicationService } from '../application.service';
 
 @Component({
@@ -8,15 +8,15 @@ import { ApplicationService } from '../application.service';
   templateUrl: 'app-list.component.html'
 })
 export class AppListComponent implements OnInit {
-  applications: Application[] = [];
+  applicationsCategories: ApplicationCategory[] = [];
 
   constructor(private applicationService: ApplicationService) {}
 
   ngOnInit() {
-    this.applicationService.appsChanged.subscribe(
-      (applications: Application[]) => this.applications = applications
+    this.applicationService.appsCategoriesChanged.subscribe(
+      (applicationsCategories: ApplicationCategory[]) => this.applicationsCategories = applicationsCategories
     );
-    this.applicationService.getApplications();
+    this.applicationService.getApplicationsCategories();
   }
 
 }

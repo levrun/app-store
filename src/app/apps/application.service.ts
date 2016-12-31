@@ -1,48 +1,52 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Application } from './models/application';
+import { ApplicationCategory } from './models/application-category';
 import { Ingredient } from "../shared";
 import { Headers, Http, Response } from "@angular/http";
 import "rxjs/Rx";
 
 @Injectable()
 export class ApplicationService {
-  appsChanged = new EventEmitter<Application[]>();
+  appsCategoriesChanged = new EventEmitter<ApplicationCategory[]>();
 
-  private applications: Application[] = [
-    new Application('Schnitzel', 'Very tasty', 'https://smartcoderteam.github.io/images/alexei.jpg', [
-      new Ingredient('French Fries', 2),
-      new Ingredient('Pork Meat', 1)
-    ]),
-    new Application('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', [
-      new Ingredient('Lettuce', 3),
-      new Ingredient('Melon', 1)
-    ])
-  ];
+  private applicationsCategories: ApplicationCategory[] = [];
 
   constructor(private http: Http) { }
 
-  getApplications() {
+  getApplicationsCategories() {
     this.fetchData();
   }
 
-  getApp(id: number) {
-    return this.applications[id];
+  getAppCategory(id: number) {
+    return this.applicationsCategories[id];
   }
 
-  deleteApp(application: Application) {
-    this.applications.splice(this.applications.indexOf(application), 1);
+  deleteAppCategory(applicationCategory: ApplicationCategory) {
+    this.applicationsCategories.splice(this.applicationsCategories.indexOf(applicationCategory), 1);
+    this.storeData().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
-  addApp(application: Application) {
-    this.applications.push(application);
+  addAppCategory(applicationCategory: ApplicationCategory) {
+    this.applicationsCategories.push(applicationCategory);
+    this.storeData().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
-  editApp(oldApplication: Application, newApplication: Application) {
-    this.applications[this.applications.indexOf(oldApplication)] = newApplication;
+  editAppCategory(oldApplicationCategory: ApplicationCategory, newApplicationCategory: ApplicationCategory) {
+    this.applicationsCategories[this.applicationsCategories.indexOf(oldApplicationCategory)] = newApplicationCategory;
+    this.storeData().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   storeData() {
-    const body = JSON.stringify(this.applications);
+    console.log("storeData");
+    const body = JSON.stringify(this.applicationsCategories);
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
@@ -53,9 +57,9 @@ export class ApplicationService {
     return this.http.get('https://angular2-course-8b269.firebaseio.com/apps.json')
       .map((response: Response) => response.json())
       .subscribe(
-        (data: Application[]) => {
-          this.applications = data;
-          this.appsChanged.emit(this.applications);
+        (data: ApplicationCategory[]) => {
+          this.applicationsCategories = data;
+          this.appsCategoriesChanged.emit(this.applicationsCategories);
         }
       )
   }

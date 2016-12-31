@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { ApplicationService } from '../application.service';
-import { Application } from '../models/application';
+import { ApplicationCategory } from '../models/application-category';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -13,10 +13,10 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class AppEditComponent implements OnInit, OnDestroy {
 
-  appForm: FormGroup;
-  private appIndex: number;
+  appCategoryForm: FormGroup;
+  private appCategoryIndex: number;
   private subscription: Subscription;
-  private application: Application;
+  private applicationCategory: ApplicationCategory;
   private isNew = true;
 
   constructor(private route: ActivatedRoute,
@@ -29,11 +29,11 @@ export class AppEditComponent implements OnInit, OnDestroy {
       (params: any) => {
         if(params.hasOwnProperty('id')) {
           this.isNew = false;
-          this.appIndex = +params['id'];
-          this.application = this.applicationService.getApp(this.appIndex);
+          this.appCategoryIndex = +params['id'];
+          this.applicationCategory = this.applicationService.getAppCategory(this.appCategoryIndex);
         } else {
           this.isNew = true;
-          this.application = null;
+          this.applicationCategory = null;
         }
         console.log(this.isNew);
         this.initForm();
@@ -51,20 +51,20 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   private initForm() {
-    let appName = '';
-    let appImageUrl = '';
-    let appContent = '';
+    let appCategoryName = '';
+    let appCategoryImageUrl = '';
+    let appCategoryContent = '';
     let appIngredients: FormArray = new FormArray([]);
 
     if(!this.isNew) {
 
-      if(this.application.hasOwnProperty('ingredients')) {
-        for(let i = 0; i < this.application.ingredients.length; i++) {
+      if(this.applicationCategory.hasOwnProperty('ingredients')) {
+        for(let i = 0; i < this.applicationCategory.ingredients.length; i++) {
           appIngredients.push(
             new FormGroup(
               {
-                name: new FormControl(this.application.ingredients[i].name, Validators.required),
-                amount: new FormControl(this.application.ingredients[i].amount, [
+                name: new FormControl(this.applicationCategory.ingredients[i].name, Validators.required),
+                amount: new FormControl(this.applicationCategory.ingredients[i].amount, [
                   Validators.required,
                   Validators.pattern("\\d+")])
               }
@@ -73,15 +73,15 @@ export class AppEditComponent implements OnInit, OnDestroy {
         }
       }
 
-      appName = this.application.name;
-      appImageUrl = this.application.imagePath;
-      appContent = this.application.description;
+      appCategoryName = this.applicationCategory.name;
+      appCategoryImageUrl = this.applicationCategory.imagePath;
+      appCategoryContent = this.applicationCategory.description;
     }
 
-    this.appForm = this.formBuilder.group({
-      name: [appName, Validators.required],
-      imagePath: [appImageUrl, Validators.required],
-      description: [appContent, Validators.required],
+    this.appCategoryForm = this.formBuilder.group({
+      name: [appCategoryName, Validators.required],
+      imagePath: [appCategoryImageUrl, Validators.required],
+      description: [appCategoryContent, Validators.required],
       ingredients: appIngredients
     });
 
@@ -89,11 +89,11 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const newApplication = this.appForm.value;
+    const newApplicationCategory = this.appCategoryForm.value;
     if(this.isNew) {
-      this.applicationService.addApp(newApplication);
+      this.applicationService.addAppCategory(newApplicationCategory);
     } else {
-      this.applicationService.editApp(this.application, newApplication);
+      this.applicationService.editAppCategory(this.applicationCategory, newApplicationCategory);
     }
 
     this.navigateBack();
@@ -104,7 +104,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onAddItem(name: string, amount: string) {
-      (<FormArray>this.appForm.controls['ingredients']).push(
+      (<FormArray>this.appCategoryForm.controls['ingredients']).push(
         new FormGroup(
           {
             name: new FormControl(name, Validators.required),
@@ -117,7 +117,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onRemoveItem(index: number) {
-    (<FormArray>this.appForm.controls['ingredients']).removeAt(index);
+    (<FormArray>this.appCategoryForm.controls['ingredients']).removeAt(index);
   }
 
 }

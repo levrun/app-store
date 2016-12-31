@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Application } from "./models/application";
+import { ApplicationCategory } from "./models/application-category";
 
 @Component({
   selector: 'as-apps',
   templateUrl: 'apps.component.html'
 })
 export class AppsComponent implements OnInit {
-  selectedApplication: Application;
+  selectedApplicationCategory: ApplicationCategory;
 
   constructor() {}
 

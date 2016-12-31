@@ -1,11 +1,11 @@
-<a [routerLink]="[applicationId]" class="list-group-item clearfix" routerLinkActive="active" >
+<a [routerLink]="[applicationCategoryId]" class="list-group-item clearfix" routerLinkActive="active" >
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{application.name}}</h4>
-    <p class="list-group-item-text">{{application.description}}</p>
+    <h4 class="list-group-item-heading">{{applicationCategory.name}}</h4>
+    <p class="list-group-item-text">{{applicationCategory.description}}</p>
   </div>
   <span class="pull-right">
       <img class="img-responsive"
-           src="{{application.imagePath}}"
+           src="{{applicationCategory.imagePath}}"
            style="max-height: 50px;"/>
   </span>
 </a>

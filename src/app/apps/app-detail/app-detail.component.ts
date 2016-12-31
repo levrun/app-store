@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Application } from "../models/application";
+import { ApplicationCategory } from "../models/application-category";
 import { ShoppingListService } from "../../shopping-list/shopping-list.service";
 import { ApplicationService } from '../application.service';
 
@@ -13,8 +13,8 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class AppDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
-  private appIndex: number;
-  selectedApplication: Application;
+  private appCategoryIndex: number;
+  selectedApplicationCategory: ApplicationCategory;
 
 
   constructor(private sls: ShoppingListService,
@@ -26,23 +26,23 @@ export class AppDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
-        this.appIndex = params['id'];
-        this.selectedApplication = this.applicatonService.getApp(this.appIndex);
+        this.appCategoryIndex = params['id'];
+        this.selectedApplicationCategory = this.applicatonService.getAppCategory(this.appCategoryIndex);
       }
     );
   }
 
   onEdit() {
-    this.router.navigate(['/apps', this.appIndex, 'edit']);
+    this.router.navigate(['/categories', this.appCategoryIndex, 'edit']);
   }
 
   onDelete() {
-    this.applicatonService.deleteApp(this.selectedApplication);
-    this.router.navigate(['/apps']);
+    this.applicatonService.deleteAppCategory(this.selectedApplicationCategory);
+    this.router.navigate(['/categories']);
   }
 
   onAddToShoppingList() {
-    this.sls.addItems(this.selectedApplication.ingredients);
+    this.sls.addItems(this.selectedApplicationCategory.ingredients);
   }
 
   ngOnDestroy() {

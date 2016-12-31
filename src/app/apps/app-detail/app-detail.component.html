@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="{{selectedApplication?.imagePath}}" alt="" class="img-responsive">
+    <img src="{{selectedApplicationCategory?.imagePath}}" alt="" class="img-responsive">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{selectedApplication?.name}}</h1>
+    <h1>{{selectedApplicationCategory?.name}}</h1>
   </div>
   <div class="col-xs-12">
     <button class="btn btn-success" (click)="onAddToShoppingList()">To Shopping List</button>
@@ -16,13 +16,13 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <p>{{selectedApplication?.description}}</p>
+    <p>{{selectedApplicationCategory?.description}}</p>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of selectedApplication?.ingredients">{{item.name}} ({{item.amount}})</li>
+      <li class="list-group-item" *ngFor="let item of selectedApplicationCategory?.ingredients">{{item.name}} ({{item.amount}})</li>
     </ul>
   </div>
 </div>
