@@ -6,7 +6,7 @@ import { AppsStartComponent } from './apps-start.component';
 import { AppsComponent } from './apps.component';
 import { AppCategoryListComponent } from './app-category-list/app-category-list.component';
 import { AppCategoryItemComponent } from './app-category-list/app-category-item.component';
-import { AppDetailComponent } from './app-detail/app-detail.component';
+import { AppCategoryDetailComponent } from './app-category-detail/app-category-detail.component';
 import { applicationsRouting } from './application.routing';
 import { SharedModule } from '../shared/shared.module';
 
@@ -15,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
     AppsComponent,
     AppCategoryListComponent,
     AppCategoryItemComponent,
-    AppDetailComponent,
+    AppCategoryDetailComponent,
     AppEditComponent,
     AppsStartComponent
   ],

@@ -8,10 +8,10 @@ import { ApplicationService } from '../application.service';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'as-app-detail',
-  templateUrl: 'app-detail.component.html'
+  selector: 'as-app-category-detail',
+  templateUrl: 'app-category-detail.component.html'
 })
-export class AppDetailComponent implements OnInit, OnDestroy {
+export class AppCategoryDetailComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private appCategoryIndex: number;
   selectedApplicationCategory: ApplicationCategory;
