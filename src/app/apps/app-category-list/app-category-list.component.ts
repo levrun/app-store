@@ -4,10 +4,10 @@ import { ApplicationCategory } from '../models/application-category';
 import { ApplicationService } from '../application.service';
 
 @Component({
-  selector: 'as-app-list',
-  templateUrl: 'app-list.component.html'
+  selector: 'as-app-category-list',
+  templateUrl: 'app-category-list.component.html'
 })
-export class AppListComponent implements OnInit {
+export class AppCategoryListComponent implements OnInit {
   applicationsCategories: ApplicationCategory[] = [];
 
   constructor(private applicationService: ApplicationService) {}
