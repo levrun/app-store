@@ -8,10 +8,10 @@ import { ApplicationCategory } from '../models/application-category';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'as-app-edit',
-  templateUrl: './app-edit.component.html'
+  selector: 'as-app-category-edit',
+  templateUrl: './app-category-edit.component.html'
 })
-export class AppEditComponent implements OnInit, OnDestroy {
+export class AppCategoryEditComponent implements OnInit, OnDestroy {
 
   appCategoryForm: FormGroup;
   private appCategoryIndex: number;
