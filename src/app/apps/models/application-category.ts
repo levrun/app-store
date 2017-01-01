@@ -1,5 +1,5 @@
-import { Ingredient } from "../../shared";
+import { Application } from "../../shared";
 
 export class ApplicationCategory {
-  constructor(public name: string, public description: string, public imagePath: string, public ingredients: Ingredient[]) {}
+  constructor(public name: string, public description: string, public imagePath: string, public applications: Application[]) {}
 }

@@ -54,17 +54,17 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
     let appCategoryName = '';
     let appCategoryImageUrl = '';
     let appCategoryContent = '';
-    let appIngredients: FormArray = new FormArray([]);
+    let appApplications: FormArray = new FormArray([]);
 
     if(!this.isNew) {
 
-      if(this.applicationCategory.hasOwnProperty('ingredients')) {
-        for(let i = 0; i < this.applicationCategory.ingredients.length; i++) {
-          appIngredients.push(
+      if(this.applicationCategory.hasOwnProperty('applications')) {
+        for(let i = 0; i < this.applicationCategory.applications.length; i++) {
+          appApplications.push(
             new FormGroup(
               {
-                name: new FormControl(this.applicationCategory.ingredients[i].name, Validators.required),
-                amount: new FormControl(this.applicationCategory.ingredients[i].amount, [
+                name: new FormControl(this.applicationCategory.applications[i].name, Validators.required),
+                amount: new FormControl(this.applicationCategory.applications[i].amount, [
                   Validators.required,
                   Validators.pattern("\\d+")])
               }
@@ -82,7 +82,7 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
       name: [appCategoryName, Validators.required],
       imagePath: [appCategoryImageUrl, Validators.required],
       description: [appCategoryContent, Validators.required],
-      ingredients: appIngredients
+      applications: appApplications
     });
 
 
@@ -106,7 +106,7 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
   }
 
   onAddItem(name: string, amount: string) {
-      (<FormArray>this.appCategoryForm.controls['ingredients']).push(
+      (<FormArray>this.appCategoryForm.controls['applications']).push(
         new FormGroup(
           {
             name: new FormControl(name, Validators.required),
@@ -119,7 +119,7 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
   }
 
   onRemoveItem(index: number) {
-    (<FormArray>this.appCategoryForm.controls['ingredients']).removeAt(index);
+    (<FormArray>this.appCategoryForm.controls['applications']).removeAt(index);
   }
 
 }

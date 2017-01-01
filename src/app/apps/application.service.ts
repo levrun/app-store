@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { ApplicationCategory } from './models/application-category';
-import { Ingredient } from "../shared";
+import { Application } from "../shared";
 import { Headers, Http, Response } from "@angular/http";
 import "rxjs/Rx";
 

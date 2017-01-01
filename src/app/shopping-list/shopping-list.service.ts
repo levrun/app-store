@@ -1,8 +1,8 @@
-import { Ingredient } from "../shared";
+import { Application } from "../shared";
 
 export class ShoppingListService {
 
-  private items: Ingredient[] = [];
+  private items: Application[] = [];
 
   constructor() { }
 
@@ -10,19 +10,19 @@ export class ShoppingListService {
     return this.items;
   }
 
-  addItems(items: Ingredient[]) {
+  addItems(items: Application[]) {
     Array.prototype.push.apply(this.items, items);
   }
 
-  addItem(item: Ingredient) {
+  addItem(item: Application) {
     this.items.push(item);
   }
 
-  editItem(oldItem: Ingredient, newItem: Ingredient) {
+  editItem(oldItem: Application, newItem: Application) {
     this.items[this.items.indexOf(oldItem)] = newItem;
   }
 
-  deleteItem(item: Ingredient) {
+  deleteItem(item: Application) {
     this.items.splice(this.items.indexOf(item), 1);
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ingredient } from "../shared";
+import { Application } from "../shared";
 import { ShoppingListService } from "./shopping-list.service";
 
 @Component({
@@ -8,9 +8,9 @@ import { ShoppingListService } from "./shopping-list.service";
   templateUrl: 'shopping-list.component.html'
 })
 export class ShoppingListComponent implements OnInit {
-  items: Ingredient[] = [];
+  items: Application[] = [];
 
-  selectedItem: Ingredient = null;
+  selectedItem: Application = null;
 
   constructor(private sls: ShoppingListService) {}
 
@@ -18,7 +18,7 @@ export class ShoppingListComponent implements OnInit {
     this.items = this.sls.getItems();
   }
 
-  onSelectItem(item: Ingredient) {
+  onSelectItem(item: Application) {
     this.selectedItem = item;
   }
 

@@ -42,7 +42,7 @@ export class AppCategoryDetailComponent implements OnInit, OnDestroy {
   }
 
   onAddToShoppingList() {
-    this.sls.addItems(this.selectedApplicationCategory.ingredients);
+    this.sls.addItems(this.selectedApplicationCategory.applications);
   }
 
   ngOnDestroy() {

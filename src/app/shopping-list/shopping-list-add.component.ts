@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
-import { Ingredient } from '../shared/ingredient';
+import { Application } from '../shared/application';
 import { ShoppingListService } from "./shopping-list.service";
 
 @Component({
@@ -9,7 +9,7 @@ import { ShoppingListService } from "./shopping-list.service";
 })
 export class ShoppingListAddComponent implements OnChanges {
 
-  @Input() item: Ingredient;
+  @Input() item: Application;
   @Output() cleared = new EventEmitter();
 
   isAdd = true;
@@ -25,13 +25,13 @@ export class ShoppingListAddComponent implements OnChanges {
     }
   }
 
-  onSubmit(ingredient: Ingredient) {
-    const newIngredient = new Ingredient(ingredient.name, ingredient.amount);
+  onSubmit(application: Application) {
+    const newApplication = new Application(application.name, application.amount);
     if(!this.isAdd) {
-      this.sls.editItem(this.item, newIngredient);
+      this.sls.editItem(this.item, newApplication);
       this.onClear();
     } else {
-      this.item = newIngredient;
+      this.item = newApplication;
       this.sls.addItem(this.item);
     }
   }

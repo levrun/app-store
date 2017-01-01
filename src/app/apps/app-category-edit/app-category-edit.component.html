@@ -57,9 +57,9 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <ul class="list-group" formArrayName="ingredients">
+          <ul class="list-group" formArrayName="applications">
             <div
-              class="row" *ngFor="let ingredient of appCategoryForm.controls['ingredients'].controls; let i = index">
+              class="row" *ngFor="let application of appCategoryForm.controls['applications'].controls; let i = index">
               <div formGroupName="{{i}}">
                 <div class="col-sm-5">
                   <input
