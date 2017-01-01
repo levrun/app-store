@@ -7,6 +7,7 @@ import { AppsComponent } from './apps.component';
 import { AppCategoryListComponent } from './app-category-list/app-category-list.component';
 import { AppCategoryItemComponent } from './app-category-list/app-category-item.component';
 import { AppCategoryDetailComponent } from './app-category-detail/app-category-detail.component';
+import { AppListComponent  } from './app-list/app-list.component';
 import { applicationsRouting } from './application.routing';
 import { SharedModule } from '../shared/shared.module';
 
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     AppCategoryItemComponent,
     AppCategoryDetailComponent,
     AppCategoryEditComponent,
+    AppListComponent,
     AppsStartComponent
   ],
   imports: [SharedModule, ReactiveFormsModule, applicationsRouting]
