@@ -17,7 +17,8 @@ export class AppListComponent implements OnInit {
   selectedApplicationCategory: ApplicationCategory;
 
   constructor(private route: ActivatedRoute,
-              private applicatonService: ApplicationService) {}
+              private applicatonService: ApplicationService,
+              private router: Router) {}
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
@@ -26,6 +27,10 @@ export class AppListComponent implements OnInit {
         this.selectedApplicationCategory = this.applicatonService.getAppCategory(this.appCategoryIndex);
       }
     );
+  }
+
+  toCategoryDetails() {
+    this.router.navigate(['/categories', this.appCategoryIndex]);
   }
 
 }
