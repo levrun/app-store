@@ -33,4 +33,8 @@ export class AppListComponent implements OnInit {
     this.router.navigate(['/categories', this.appCategoryIndex]);
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
 }
