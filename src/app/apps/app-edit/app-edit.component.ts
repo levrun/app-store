@@ -8,10 +8,10 @@ import { ApplicationService } from '../application.service';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'as-app-detail',
-  templateUrl: 'app-detail.component.html'
+  selector: 'as-app-edit',
+  templateUrl: 'app-edit.component.html'
 })
-export class AppDetailComponent implements OnInit, OnDestroy {
+export class AppEditComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private appIndex: number;
   private appCategoryIndex: number;
@@ -37,10 +37,6 @@ export class AppDetailComponent implements OnInit, OnDestroy {
                                                   2);
       }
     );
-  }
-
-  onEdit() {
-    this.router.navigate(['/categories', this.appCategoryIndex, 'apps', this.appIndex, 'edit']);
   }
 
   ngOnDestroy() {
