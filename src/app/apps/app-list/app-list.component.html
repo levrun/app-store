@@ -2,8 +2,11 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
+    <h1>{{selectedApplicationCategory?.name}}</h1>
+  </div>
+  <div class="col-xs-12">
     <ul class="list-group">
-      <h2>App list component!</h2>
+      <li class="list-group-item" *ngFor="let item of selectedApplicationCategory?.applications">{{item.name}} ({{item.amount}})</li>
     </ul>
   </div>
 </div>
