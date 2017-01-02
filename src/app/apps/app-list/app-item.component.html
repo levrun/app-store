@@ -2,6 +2,7 @@
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{application.name}}</h4>
     <p class="list-group-item-text">{{application.amount}}</p>
+    <a class="btn btn-link" [routerLink]="[applicationId, 'details']" routerLinkActive="active">Details</a>
   </div>
   <span class="pull-right">
       <img class="img-responsive"
