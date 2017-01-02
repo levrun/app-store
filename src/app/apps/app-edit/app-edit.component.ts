@@ -39,6 +39,15 @@ export class AppEditComponent implements OnInit, OnDestroy {
     );
   }
 
+  onCancelEdit() {
+    this.router.navigate(['/categories', this.appCategoryIndex, 'apps', this.appIndex, 'details']);
+  }
+
+  onSave() {
+    // TODO
+    console.log("Save Application form");
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
