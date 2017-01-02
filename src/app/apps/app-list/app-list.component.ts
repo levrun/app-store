@@ -11,9 +11,9 @@ import { Subscription } from 'rxjs/Rx';
   templateUrl: 'app-list.component.html'
 })
 export class AppListComponent implements OnInit {
-  applications: Application[] = [];
   private subscription: Subscription;
   private appCategoryIndex: number;
+  applications: Application[] = [];
   selectedApplicationCategory: ApplicationCategory;
 
   constructor(private route: ActivatedRoute,
@@ -25,6 +25,7 @@ export class AppListComponent implements OnInit {
       (params: any) => {
         this.appCategoryIndex = params['id'];
         this.selectedApplicationCategory = this.applicatonService.getAppCategory(this.appCategoryIndex);
+        this.applications = this.selectedApplicationCategory.applications;
       }
     );
   }

@@ -9,7 +9,11 @@
   </div>
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of selectedApplicationCategory?.applications">{{item.name}} ({{item.amount}})</li>
+      <as-app-item *ngFor="let application of applications; let i = index"
+                            [application]="application"
+                            [applicationId]="i">
+      </as-app-item>
     </ul>
   </div>
+
 </div>
