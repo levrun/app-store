@@ -20,6 +20,11 @@ export class ApplicationService {
     return this.applicationsCategories[id];
   }
 
+  getAppByCategoryIdAndAppId(id: number, appId: number) {
+    let category: ApplicationCategory = this.getAppCategory(id);
+    return category.applications[appId]; 
+  }
+
   deleteAppCategory(applicationCategory: ApplicationCategory) {
     this.applicationsCategories.splice(this.applicationsCategories.indexOf(applicationCategory), 1);
     this.storeData().subscribe(

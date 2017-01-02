@@ -29,12 +29,13 @@ export class AppDetailComponent implements OnInit, OnDestroy {
       (params: any) => {
         this.appIndex = params['app_id'];
         this.appCategoryIndex = params['id'];
-        this.selectedApplication = new Application(this.appIndex,
-                                                  "MyApplication",
-                                                  this.appCategoryIndex,
-                                                  "Description",
-                                                  "http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg",
-                                                  2);
+        this.selectedApplication = this.applicatonService.getAppByCategoryIdAndAppId(this.appCategoryIndex, this.appIndex);
+        // this.selectedApplication = new Application(this.appIndex,
+        //                                           "MyApplication",
+        //                                           this.appCategoryIndex,
+        //                                           "Description",
+        //                                           "http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg",
+        //                                           2);
       }
     );
   }
