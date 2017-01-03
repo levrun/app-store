@@ -30,18 +30,17 @@ export class AppDetailComponent implements OnInit, OnDestroy {
         this.appIndex = params['app_id'];
         this.appCategoryIndex = params['id'];
         this.selectedApplication = this.applicatonService.getAppByCategoryIdAndAppId(this.appCategoryIndex, this.appIndex);
-        // this.selectedApplication = new Application(this.appIndex,
-        //                                           "MyApplication",
-        //                                           this.appCategoryIndex,
-        //                                           "Description",
-        //                                           "http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg",
-        //                                           2);
       }
     );
   }
 
   onEdit() {
     this.router.navigate(['/categories', this.appCategoryIndex, 'apps', this.appIndex, 'edit']);
+  }
+
+  onDelete() {
+      this.applicatonService.deleteApp(this.appCategoryIndex, this.appIndex);
+      this.router.navigate(['/categories', this.appCategoryIndex, 'apps']);
   }
 
   ngOnDestroy() {

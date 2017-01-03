@@ -51,6 +51,15 @@ export class ApplicationService {
     );
   }
 
+  deleteApp(id: number, appId: number) {
+      let category: ApplicationCategory = this.getAppCategory(id);
+      category.applications.splice(appId, 1);
+      this.storeData().subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
+  }
+
   addAppCategory(applicationCategory: ApplicationCategory) {
     if(this.applicationsCategories === null) {
       this.applicationsCategories = [];
