@@ -25,6 +25,15 @@ export class ApplicationService {
     return category.applications[appId];
   }
 
+  addNewAppByCategoryId(id: number, newApp: Application) {
+      let category: ApplicationCategory = this.getAppCategory(id);
+      category.applications.push(newApp);
+      this.storeData().subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
+  }
+
   updateAppByCategoryIdAndAppId(id: number, appId: number, newApp: Application) {
       let category: ApplicationCategory = this.getAppCategory(id);
       category.applications[appId] = newApp;

@@ -34,6 +34,10 @@ export class AppListComponent implements OnInit {
     this.router.navigate(['/categories', this.appCategoryIndex]);
   }
 
+  addNewApplication() {
+      this.router.navigate(['/categories', this.appCategoryIndex, 'apps', -1, 'edit']);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

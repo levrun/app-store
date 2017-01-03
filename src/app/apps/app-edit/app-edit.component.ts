@@ -18,7 +18,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   private appCategoryIndex: number;
   selectedApplication: Application;
 
-  private isNew:boolean = false;
+  private isNew:boolean = true;
 
   appForm: FormGroup;
 
@@ -33,6 +33,9 @@ export class AppEditComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
         this.appIndex = params['app_id'];
+        if(this.appIndex != -1) {
+          this.isNew = false;
+        }
         this.appCategoryIndex = params['id'];
         this.selectedApplication = this.applicatonService.getAppByCategoryIdAndAppId(this.appCategoryIndex, this.appIndex);
         this.initForm();
@@ -41,6 +44,7 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   private initForm() {
+    debugger;
     let appName = '';
     let appImageUrl = 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg';
     let appDescription = 'This is app description default';
@@ -64,9 +68,15 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const newApplication = this.appForm.value;
-    this.applicatonService.updateAppByCategoryIdAndAppId(this.appCategoryIndex, this.appIndex, newApplication);
-    this.navigateBack();
+    if(this.isNew) {
+      const newApplication = this.appForm.value;
+      this.applicatonService.addNewAppByCategoryId(this.appCategoryIndex, newApplication);
+      this.router.navigate(['/categories', this.appCategoryIndex, 'apps']);
+    } else {
+      const newApplication = this.appForm.value;
+      this.applicatonService.updateAppByCategoryIdAndAppId(this.appCategoryIndex, this.appIndex, newApplication);
+      this.navigateBack();
+    }
   }
 
   private navigateBack() {
