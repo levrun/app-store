@@ -43,6 +43,11 @@ export class AppDetailComponent implements OnInit, OnDestroy {
       this.router.navigate(['/categories', this.appCategoryIndex, 'apps']);
   }
 
+  onDownload() {
+    // TODO
+    console.log("onDownload()");
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
