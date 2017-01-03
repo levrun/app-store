@@ -3,7 +3,7 @@
     <a class="btn-lg btn-link" [routerLink]="[applicationId, 'details']" routerLinkActive="active">{{application.name}}</a>
     <div>
         <div class="col-xs-12">
-            {{application.description | slice:0:40}} {{(application.description.length > 40) ? getCommas():"" }}
+            {{application.description | slice:0:40}} {{(application.description?.length > 40) ? getCommas():"" }}
         </div>
     </div>
   </div>
