@@ -10,4 +10,8 @@ export class AppItemComponent {
   @Input() application: Application;
   @Input() applicationId: number;
 
+  getCommas() {
+    return "...";
+  }
+
 }
