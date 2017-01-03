@@ -1,12 +1,60 @@
 <div class="row">
   <div class="col-xs-12">
-    <h1>Application Edit page</h1>
-  </div>
-  <div class="col-xs-12">
-    <button class="btn btn-primary" (click)="onCancelEdit()">Cancel</button>
-    <button class="btn btn-danger" (click)="onSave()">Save</button>
-  </div>
-  <div class="col-xs-12">
-    <img src="http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg" alt="" class="img-responsive">
+    <form [formGroup]="appForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!appForm.valid">Save</button>
+          <a class="btn btn-danger" (click)="onCancelEdit()">Cancel</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name"
+              >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="image-url">Image Url</label>
+            <input
+              type="text"
+              id="image-url"
+              class="form-control"
+              formControlName="imagePath"
+              #imageUrl
+              >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="img">
+            <img [src]="imageUrl.value">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea
+              type="text"
+              id="content"
+              rows="6"
+              class="form-control"
+              formControlName="description"
+              ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

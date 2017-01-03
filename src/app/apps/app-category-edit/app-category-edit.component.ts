@@ -91,9 +91,7 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
   onSubmit() {
     const newApplicationCategory = this.appCategoryForm.value;
     if(this.isNew) {
-      console.log("onSubmit()");
       this.applicationService.addAppCategory(newApplicationCategory);
-      console.log("after addAppCategory()");
     } else {
       this.applicationService.editAppCategory(this.applicationCategory, newApplicationCategory);
     }

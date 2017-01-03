@@ -22,7 +22,16 @@ export class ApplicationService {
 
   getAppByCategoryIdAndAppId(id: number, appId: number) {
     let category: ApplicationCategory = this.getAppCategory(id);
-    return category.applications[appId]; 
+    return category.applications[appId];
+  }
+
+  updateAppByCategoryIdAndAppId(id: number, appId: number, newApp: Application) {
+      let category: ApplicationCategory = this.getAppCategory(id);
+      category.applications[appId] = newApp;
+      this.storeData().subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
   }
 
   deleteAppCategory(applicationCategory: ApplicationCategory) {
