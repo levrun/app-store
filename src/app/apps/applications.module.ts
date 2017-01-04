@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppCategoryEditComponent } from './app-category-edit/app-category-edit.component';
-import { AppsStartComponent } from './apps-start.component';
+import { AppsStartComponent } from './apps-start/apps-start.component';
 import { AppsComponent } from './apps.component';
 import { AppCategoryListComponent } from './app-category-list/app-category-list.component';
 import { AppCategoryItemComponent } from './app-category-list/app-category-item.component';

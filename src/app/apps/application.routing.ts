@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
-import { AppsStartComponent } from "./apps-start.component";
+import { AppsStartComponent } from "./apps-start/apps-start.component";
 import { AppCategoryDetailComponent } from "./app-category-detail/app-category-detail.component";
 import { AppDetailComponent } from "./app-details/app-detail.component";
 import { AppEditComponent } from "./app-edit/app-edit.component";

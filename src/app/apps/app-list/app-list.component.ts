@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../../shared/application';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApplicationService } from '../application.service';
+import { ApplicationService } from '../services/application.service';
 import { ApplicationCategory } from "../models/application-category";
 
 import { Subscription } from 'rxjs/Rx';

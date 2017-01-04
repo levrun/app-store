@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Application } from "../../shared/application";
 import { ShoppingListService } from "../../shopping-list/shopping-list.service";
-import { ApplicationService } from '../application.service';
+import { ApplicationService } from '../services/application.service';
 
 import { Subscription } from 'rxjs/Rx';
 

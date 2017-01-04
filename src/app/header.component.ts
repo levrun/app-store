@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 
-import { ApplicationService } from './apps/application.service';
+import { ApplicationService } from './apps/services/application.service';
 
 @Component({
   selector: 'as-header',

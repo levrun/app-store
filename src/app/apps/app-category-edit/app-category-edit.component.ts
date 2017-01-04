@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
-import { ApplicationService } from '../application.service';
+import { ApplicationService } from '../services/application.service';
 import { ApplicationCategory } from '../models/application-category';
 
 import { Subscription } from 'rxjs/Rx';

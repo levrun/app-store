@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApplicationCategory } from '../models/application-category';
-import { ApplicationService } from '../application.service';
+import { ApplicationService } from '../services/application.service';
 
 @Component({
   selector: 'as-app-category-list',

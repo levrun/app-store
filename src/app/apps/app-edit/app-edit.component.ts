@@ -4,7 +4,7 @@ import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@ang
 
 import { Application } from "../../shared/application";
 import { ShoppingListService } from "../../shopping-list/shopping-list.service";
-import { ApplicationService } from '../application.service';
+import { ApplicationService } from '../services/application.service';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -44,7 +44,6 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   private initForm() {
-    debugger;
     let appName = '';
     let appImageUrl = 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg';
     let appDescription = 'This is app description default';
