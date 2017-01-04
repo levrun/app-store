@@ -12,6 +12,7 @@ import { AppDetailComponent } from './app-details/app-detail.component';
 import { AppEditComponent } from './app-edit/app-edit.component';
 import { AppListComponent  } from './app-list/app-list.component';
 import { applicationsRouting } from './application.routing';
+import { TopAppsComponent } from './top-apps/top-apps.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SharedModule } from '../shared/shared.module';
     AppDetailComponent,
     AppCategoryEditComponent,
     AppListComponent,
-    AppsStartComponent
+    AppsStartComponent,
+    TopAppsComponent
   ],
   imports: [SharedModule, ReactiveFormsModule, applicationsRouting]
 
