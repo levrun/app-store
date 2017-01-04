@@ -96,11 +96,11 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
       this.applicationService.editAppCategory(this.applicationCategory, newApplicationCategory);
     }
 
-    this.navigateBack();
+    this.router.navigate(['/categories']);
   }
 
   onCancel() {
-    this.navigateBack();
+    this.router.navigate(['/categories', this.appCategoryIndex]);
   }
 
   onAddItem(name: string, amount: string) {
