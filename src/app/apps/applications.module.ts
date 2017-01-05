@@ -14,6 +14,7 @@ import { AppListComponent  } from './app-list/app-list.component';
 import { applicationsRouting } from './application.routing';
 import { TopAppsComponent } from './top-apps/top-apps.component';
 import { SharedModule } from '../shared/shared.module';
+import { MaterializeModule } from "angular2-materialize";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { SharedModule } from '../shared/shared.module';
     AppsStartComponent,
     TopAppsComponent
   ],
-  imports: [SharedModule, ReactiveFormsModule, applicationsRouting]
+  imports: [SharedModule,
+            ReactiveFormsModule,
+            applicationsRouting,
+            MaterializeModule]
 
 })
 export class ApplicationsModule {}
