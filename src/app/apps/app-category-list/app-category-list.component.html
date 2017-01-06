@@ -1,15 +1,7 @@
-<div class="row">
-  <div class="col-xs-12">
-    <a class="btn btn-success" [routerLink]="['new']">New App Category</a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <as-app-category-item *ngFor="let applicationCategory of applicationsCategories; let i = index"
+<ul class="collection">
+  <li class="collection-header"><span class="title">Categories</span></li>
+  <as-app-category-item *ngFor="let applicationCategory of applicationsCategories; let i = index"
                             [applicationCategory]="applicationCategory"
                             [applicationCategoryId]="i">
       </as-app-category-item>
-    </ul>
-  </div>
-</div>
+</ul>
