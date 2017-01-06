@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { CollapseModule } from 'ng2-bootstrap/collapse';
+import { Component, EventEmitter } from '@angular/core';
 
 import { ApplicationService } from './apps/services/application.service';
+
+import { MaterializeAction } from 'angular2-materialize';
 
 @Component({
   selector: 'as-header',
@@ -12,12 +13,12 @@ export class HeaderComponent {
 
   constructor(private applicationService: ApplicationService) {}
 
-   public collapsed(event:any):void {
-      console.log(event);
+  modalActions = new EventEmitter<string|MaterializeAction>();
+    openModal() {
+      this.modalActions.emit({action:"modal",params:['open']});
     }
-
-    public expanded(event:any):void {
-      console.log(event);
+    closeModal() {
+      this.modalActions.emit({action:"modal",params:['close']});
     }
 
   onStore() {
