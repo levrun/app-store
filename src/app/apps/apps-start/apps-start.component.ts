@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'as-app-start',
-  template: `
-    <h1>Choose application category...</h1>
-  `,
-  styles: []
+  templateUrl: 'apps-start.component.html'
 })
-export class AppsStartComponent implements OnInit {
+export class AppsStartComponent implements AfterViewInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  ngAfterViewInit(): void {
+      $('#btn-collapse-side-nav2').sideNav({
+          menuWidth: 300,
+          closeOnClick: true,
+          draggable: true
+        }
+      );
+      console.log("#btn-collapse-side-nav called");
   }
 
 }
