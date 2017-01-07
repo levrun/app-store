@@ -4,19 +4,19 @@
 <div materialize="carousel" class="carousel">
 
    <a class="carousel-item" *ngFor="let application of applications; let i = index">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{application.imagePath}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{application.name}}<i class="material-icons right">more_vert</i></span>
-          <p><a href="categories/0/apps/{{i}}/details">{{application.name}}</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{application.name}}<i class="material-icons right">close</i></span>
-          <p>{{application.description}}</p>
-        </div>
-      </div>
+     <div class="card small">
+       <div class="card-image waves-effect waves-block waves-light">
+         <img class="circle activator responsive-img" src="{{application.imagePath}}">
+       </div>
+       <div class="card-content">
+         <span class="truncate card-title activator grey-text text-darken-4">{{application.name}}<i class="material-icons right">more_vert</i></span>
+         <a href="categories/0/apps/{{i}}/details">{{application.name}}</a>
+       </div>
+       <div class="card-reveal">
+         <span class="card-title grey-text text-darken-4">{{application.name}}<i class="material-icons right">close</i></span>
+         {{application.description}}
+       </div>
+     </div>
    </a>
 </div>
 

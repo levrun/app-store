@@ -1,15 +1,15 @@
-<a class="list-group-item clearfix" >
-  <div class="pull-left">
-    <a class="btn-lg btn-link" [routerLink]="[applicationId, 'details']" routerLinkActive="active">{{application.name}}</a>
-    <div>
-        <div class="col-xs-12">
-            {{application.description | slice:0:40}} {{(application.description?.length > 40) ? getCommas():"" }}
-        </div>
+<div class="col s3 m3">
+    <div class="card hoverable small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator responsive-img" src="{{application.imagePath}}">
+      </div>
+      <div class="card-content">
+        <span class="truncate card-title activator grey-text text-darken-4">{{application.name}}<i class="material-icons right">more_vert</i></span>
+        <p><a [routerLink]="[applicationId, 'details']" routerLinkActive="active">Details</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
+        <p>{{application.description}}</p>
+      </div>
     </div>
-  </div>
-  <span class="pull-right">
-      <img class="img-responsive"
-           src="{{application.imagePath}}"
-           style="max-height: 50px;"/>
-  </span>
-</a>
+</div>
