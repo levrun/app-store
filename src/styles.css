@@ -1,2 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/materialize-css/dist/css/materialize.css";
+
+.as-heading {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-style: normal;
+    font-size: large;
+}
+
+.as-margin-top {
+  margin-top: 100px;
+}
+
+.as-margin-bottom-small {
+  margin-bottom: 10px;
+}

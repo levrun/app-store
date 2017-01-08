@@ -1,7 +1,14 @@
 
 <div *ngIf="isDataAvailable">
 
-<div materialize="carousel" class="carousel">
+<div class="col-s8">
+  <p class="left as-heading">Top 5 applications</p>
+</div>
+<div class="right col-s4">
+   <a class="waves-effect waves-teal btn-flat" (click)="showHide()">{{showHideButtonTitle}}</a>
+</div>
+
+<div *ngIf="isShowTop5" materialize="carousel" class="carousel z-depth-3 as-margin-bottom-small">
 
    <a class="carousel-item" *ngFor="let application of applications; let i = index">
      <div class="card small">

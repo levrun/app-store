@@ -1,14 +1,14 @@
-<div class="row">
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <h4>{{selectedApplicationCategory?.name}} category</h4>
+<div class="row as-margin-top">
+  <div class="col-s8">
+    <p class="left as-heading">Applications from '{{selectedApplicationCategory?.name}}' category</p>
   </div>
-  <div class="col-xs-12">
+  <div class="right col-s4">
     <button class="btn btn-default" (click)="toCategoryDetails()">Details</button>
     <button class="btn btn-primary" (click)="addNewApplication()">Create</button>
   </div>
-  <div class="col-xs-12">
+</div>
+<div class="row">
+  <div class="col-s12">
     <ul class="list-group">
       <as-app-item *ngFor="let application of applications; let i = index"
                             [application]="application"

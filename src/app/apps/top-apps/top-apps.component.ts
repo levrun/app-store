@@ -13,6 +13,8 @@ export class TopAppsComponent {
   applications: Application[] = [];
   selectedApplicationCategory: ApplicationCategory;
   isDataAvailable = false;
+  isShowTop5 = true;
+  showHideButtonTitle = "Hide"
 
   constructor(private applicationService: ApplicationService) {}
 
@@ -28,6 +30,16 @@ export class TopAppsComponent {
         }
     );
     this.applicationService.getApplicationsCategories();
+  }
+
+  showHide() {
+    if(this.isShowTop5) {
+      this.isShowTop5 = false;
+      this.showHideButtonTitle = "Show";
+    } else {
+      this.isShowTop5 = true;
+      this.showHideButtonTitle = "Hide"
+    }
   }
 
 }
