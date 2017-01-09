@@ -1,28 +1,31 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img src="{{selectedApplicationCategory?.imagePath}}" alt="" class="img-responsive">
+<div class="row as-margin-top">
+  <div class="col-s8">
+    <p class="left as-heading">Category with name '{{selectedApplicationCategory?.name}}'</p>
   </div>
+  <div class="right col-s4">
+    <div class="fixed-action-btn horizontal click-to-toggle">
+      <a class="btn-floating btn-large red">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red tooltipped" data-position="top" data-delay="50" data-tooltip="Edit category"><i class="material-icons" (click)="onEdit()">edit</i></a></li>
+        <li><a class="btn-floating yellow darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="To shopping list"><i class="material-icons" (click)="onAddToShoppingList()">shopping_cart</i></a></li>
+        <li><a class="btn-floating red tooltipped" data-position="top" data-delay="50" data-tooltip="Delete category"><i class="material-icons"(click)="onDelete()">delete</i></a></li>
+      </ul>
+    </div>
+  </div>
+
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{selectedApplicationCategory?.name}}</h1>
+
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="{{selectedApplicationCategory?.imagePath}}">
   </div>
-  <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onAddToShoppingList()">to Shopping Cart</button>
-    <button class="btn btn-primary" (click)="onEdit()">Edit</button>
-    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">{{selectedApplicationCategory?.name}}<i class="material-icons right">more_vert</i></span>
   </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">{{selectedApplicationCategory?.name}}<i class="material-icons right">close</i></span>
     <p>{{selectedApplicationCategory?.description}}</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of selectedApplicationCategory?.applications">{{item.name}} ({{item.amount}})</li>
-    </ul>
   </div>
 </div>

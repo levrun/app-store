@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ApplicationCategory } from "../models/application-category";
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Rx';
   selector: 'as-app-category-detail',
   templateUrl: 'app-category-detail.component.html'
 })
-export class AppCategoryDetailComponent implements OnInit, OnDestroy {
+export class AppCategoryDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscription: Subscription;
   private appCategoryIndex: number;
   selectedApplicationCategory: ApplicationCategory;
@@ -43,6 +43,12 @@ export class AppCategoryDetailComponent implements OnInit, OnDestroy {
 
   onAddToShoppingList() {
     this.sls.addItems(this.selectedApplicationCategory.applications);
+  }
+
+  ngAfterViewInit(): void {
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+    });
   }
 
   ngOnDestroy() {
