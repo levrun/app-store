@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Application } from "../../shared/application";
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Rx';
   selector: 'as-app-detail',
   templateUrl: 'app-detail.component.html'
 })
-export class AppDetailComponent implements OnInit, OnDestroy {
+export class AppDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscription: Subscription;
   private appIndex: number;
   private appCategoryIndex: number;
@@ -33,6 +33,13 @@ export class AppDetailComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  ngAfterViewInit(): void {
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+    });
+  }
+
 
   onEdit() {
     this.router.navigate(['/categories', this.appCategoryIndex, 'apps', this.appIndex, 'edit']);

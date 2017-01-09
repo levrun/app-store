@@ -1,16 +1,31 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{{selectedApplication.name}}</h1>
+<div class="row as-margin-top">
+  <div class="col-s8">
+    <p class="left as-heading">Application with name '{{selectedApplication.name}}'</p>
   </div>
-  <div class="col-xs-12">
-    <button class="btn btn-primary" (click)="onEdit()">Edit</button>
-    <button class="btn btn-success" (click)="onDownload()">Download</button>
-    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  <div class="right col-s4">
+    <div class="fixed-action-btn horizontal click-to-toggle">
+      <a class="btn-floating btn-large red">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red tooltipped" data-position="top" data-delay="50" data-tooltip="Edit application"><i class="material-icons" (click)="onEdit()">edit</i></a></li>
+        <li><a class="btn-floating yellow darken-1 tooltipped" data-position="top" data-delay="50" data-tooltip="Download application"><i class="material-icons" (click)="onDownload()">file_upload</i></a></li>
+        <li><a class="btn-floating red tooltipped" data-position="top" data-delay="50" data-tooltip="Delete application"><i class="material-icons"(click)="onDelete()">delete</i></a></li>
+      </ul>
+    </div>
   </div>
-  <div class="col-xs-12">
-    <h3>{{selectedApplication.description}}</h3>
+
+</div>
+
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="{{selectedApplication.imagePath}}">
   </div>
-  <div class="col-xs-12">
-    <img src="{{selectedApplication.imagePath}}" alt="" class="img-responsive">
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">close</i></span>
+    <p>{{selectedApplication.description}}</p>
   </div>
 </div>

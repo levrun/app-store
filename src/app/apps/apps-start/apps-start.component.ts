@@ -13,7 +13,6 @@ export class AppsStartComponent implements AfterViewInit {
           draggable: true
         }
       );
-      console.log("#btn-collapse-side-nav called");
   }
 
 }
