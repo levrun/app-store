@@ -1,28 +1,31 @@
+<div class="col-s8">
+  <p class="left as-heading">{{getNameOfTheForm()}}</p>
+</div>
+<div class="right col-s4">
+  <a *ngIf="!appCategoryForm.valid" class="waves-effect waves-light btn disabled">Save</a>
+  <a *ngIf="appCategoryForm.valid" class="waves-effect waves-light btn" (click)="onSubmit()">Save</a>
+  <a class="waves-effect waves-light btn" (click)="onCancel()">Cancel</a>
+</div>
+
 <div class="row">
-  <div class="col-xs-12">
-    <form [formGroup]="appCategoryForm" (ngSubmit)="onSubmit()">
+  <div class="col s12">
+    <form id="categoryEditFormId" style="padding:15px 15px 15px 15px;" class="z-depth-3" [formGroup]="appCategoryForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="!appCategoryForm.valid">Save</button>
-          <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
+        <div class="col s12">
+          <div class="form-group input-field">
             <label for="name">Title</label>
             <input
               type="text"
               id="name"
-              class="form-control"
+              class="validate"
               formControlName="name"
               >
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
+        <div class="col s12">
+          <div class="form-group input-field">
             <label for="image-url">Image Url</label>
             <input
               type="text"
@@ -35,70 +38,26 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col s12">
           <div class="img">
             <img [src]="imageUrl.value">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="content">Content</label>
+        <div class="col s12">
+          <div class="form-group input-field">
+            <label for="content">Description</label>
             <textarea
               type="text"
               id="content"
               rows="6"
-              class="form-control"
+              class="form-control materialize-textarea"
               formControlName="description"
               ></textarea>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="list-group" formArrayName="applications">
-            <div
-              class="row" *ngFor="let application of appCategoryForm.controls['applications'].controls; let i = index">
-              <div formGroupName="{{i}}">
-                <div class="col-sm-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="name"
-                    >
-                </div>
-                <div class="col-sm-5">
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="amount"
-                    >
-                </div>
-                <div class="col-sm-2">
-                  <button class="btn btn-danger" (click)="onRemoveItem(i)">X</button>
-                </div>
-              </div>
-
-              <br><br>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="form-group row">
-      <div class="col-md-5"><input type="text" class="form-control" #itemName></div>
-      <div class="col-md-5"><input type="text" class="form-control" #itemAmount></div>
-      <div class="col-md-2">
-        <button
-          type="button"
-          class="btn btn-primary" (click)="onAddItem(itemName.value, itemAmount.value)">+</button>
-      </div>
-    </div>
+      </form>
   </div>
 </div>

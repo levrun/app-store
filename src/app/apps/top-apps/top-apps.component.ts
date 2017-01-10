@@ -13,7 +13,7 @@ export class TopAppsComponent {
   applications: Application[] = [];
   selectedApplicationCategory: ApplicationCategory;
   isDataAvailable = false;
-  isShowTop5 = true;
+  isShowTop5 = false;
   showHideButtonTitle = "Hide"
 
   constructor(private applicationService: ApplicationService) {}

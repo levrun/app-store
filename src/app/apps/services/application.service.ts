@@ -72,6 +72,7 @@ export class ApplicationService {
   }
 
   editAppCategory(oldApplicationCategory: ApplicationCategory, newApplicationCategory: ApplicationCategory) {
+    newApplicationCategory.applications = oldApplicationCategory.applications;
     this.applicationsCategories[this.applicationsCategories.indexOf(oldApplicationCategory)] = newApplicationCategory;
     this.storeData().subscribe(
       data => console.log(data),

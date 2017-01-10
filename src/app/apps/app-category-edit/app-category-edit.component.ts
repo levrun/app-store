@@ -24,6 +24,14 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
               private formBuilder: FormBuilder,
               private router: Router) { }
 
+  getNameOfTheForm() {
+    if(this.isNew) {
+      return "Create new category";
+    } else {
+      return "Edit category";
+    }
+  }
+
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
@@ -54,25 +62,8 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
     let appCategoryName = '';
     let appCategoryImageUrl = '';
     let appCategoryContent = '';
-    let appApplications: FormArray = new FormArray([]);
 
     if(!this.isNew) {
-
-      if(this.applicationCategory.hasOwnProperty('applications')) {
-        for(let i = 0; i < this.applicationCategory.applications.length; i++) {
-          appApplications.push(
-            new FormGroup(
-              {
-                name: new FormControl(this.applicationCategory.applications[i].name, Validators.required),
-                amount: new FormControl(this.applicationCategory.applications[i].amount, [
-                  Validators.required,
-                  Validators.pattern("\\d+")])
-              }
-            )
-          );
-        }
-      }
-
       appCategoryName = this.applicationCategory.name;
       appCategoryImageUrl = this.applicationCategory.imagePath;
       appCategoryContent = this.applicationCategory.description;
@@ -81,8 +72,7 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
     this.appCategoryForm = this.formBuilder.group({
       name: [appCategoryName, Validators.required],
       imagePath: [appCategoryImageUrl, Validators.required],
-      description: [appCategoryContent, Validators.required],
-      applications: appApplications
+      description: [appCategoryContent, Validators.required]
     });
 
 
@@ -101,23 +91,6 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
 
   onCancel() {
     this.router.navigate(['/categories', this.appCategoryIndex]);
-  }
-
-  onAddItem(name: string, amount: string) {
-      (<FormArray>this.appCategoryForm.controls['applications']).push(
-        new FormGroup(
-          {
-            name: new FormControl(name, Validators.required),
-            amount: new FormControl(amount, [
-              Validators.required,
-              Validators.pattern("\\d+")])
-          }
-        )
-      );
-  }
-
-  onRemoveItem(index: number) {
-    (<FormArray>this.appCategoryForm.controls['applications']).removeAt(index);
   }
 
 }
