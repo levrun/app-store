@@ -29,6 +29,14 @@ export class AppEditComponent implements OnInit, OnDestroy {
               private formBuilder: FormBuilder,
             ) {}
 
+  getNameOfTheForm() {
+    if(this.isNew) {
+      return "Create new application";
+    } else {
+      return "Edit application";
+    }
+  }
+
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
@@ -45,8 +53,8 @@ export class AppEditComponent implements OnInit, OnDestroy {
 
   private initForm() {
     let appName = '';
-    let appImageUrl = 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg';
-    let appDescription = 'This is app description default';
+    let appImageUrl = '';
+    let appDescription = '';
 
     if(!this.isNew) {
       appName = this.selectedApplication.name;

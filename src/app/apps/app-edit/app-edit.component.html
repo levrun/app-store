@@ -1,15 +1,18 @@
+<div class="col-s8">
+  <p class="left as-heading">{{getNameOfTheForm()}}</p>
+</div>
+<div class="right col-s4">
+  <a *ngIf="!appForm.valid" class="waves-effect waves-light btn disabled">Save</a>
+  <a *ngIf="appForm.valid" class="waves-effect waves-light btn" (click)="onSubmit()">Save</a>
+  <a class="waves-effect waves-light btn" (click)="onCancelEdit()">Cancel</a>
+</div>
+
 <div class="row">
-  <div class="col-xs-12">
-    <form [formGroup]="appForm" (ngSubmit)="onSubmit()">
+  <div class="col s12">
+    <form [formGroup]="appForm" style="padding:15px 15px 15px 15px;" class="z-depth-3" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="!appForm.valid">Save</button>
-          <a class="btn btn-danger" (click)="onCancelEdit()">Cancel</a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
+        <div class="col s12">
+          <div class="form-group input-field">
             <label for="name">Name</label>
             <input
               type="text"
@@ -21,8 +24,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
+        <div class="col s12">
+          <div class="form-group input-field">
             <label for="image-url">Image Url</label>
             <input
               type="text"
@@ -35,21 +38,21 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col s12">
           <div class="img">
             <img [src]="imageUrl.value">
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="form-group">
-            <label for="content">Content</label>
+        <div class="col s12">
+          <div class="form-group input-field">
+            <label for="content">Descripton</label>
             <textarea
               type="text"
               id="content"
               rows="6"
-              class="form-control"
+              class="form-control materialize-textarea"
               formControlName="description"
               ></textarea>
           </div>
