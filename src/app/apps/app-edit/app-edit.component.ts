@@ -71,7 +71,11 @@ export class AppEditComponent implements OnInit, OnDestroy {
   }
 
   onCancelEdit() {
-    this.navigateBack();
+    if(this.isNew) {
+      this.router.navigate(['/categories', this.appCategoryIndex, 'apps']);
+    } else {
+      this.router.navigate(['/categories', this.appCategoryIndex, 'apps', this.appIndex, 'details']);
+    }
   }
 
   onSubmit() {

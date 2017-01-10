@@ -74,8 +74,6 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
       imagePath: [appCategoryImageUrl, Validators.required],
       description: [appCategoryContent, Validators.required]
     });
-
-
   }
 
   onSubmit() {
@@ -90,7 +88,12 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    this.router.navigate(['/categories', this.appCategoryIndex]);
+    if(this.isNew) {
+        this.router.navigate(['/categories']);
+    } else {
+      this.router.navigate(['/categories', this.appCategoryIndex]);
+    }
+
   }
 
 }
