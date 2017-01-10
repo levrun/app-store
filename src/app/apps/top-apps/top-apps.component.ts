@@ -14,7 +14,7 @@ export class TopAppsComponent {
   selectedApplicationCategory: ApplicationCategory;
   isDataAvailable = false;
   isShowTop5 = false;
-  showHideButtonTitle = "Hide"
+  showHideButtonTitle = "Show"
 
   constructor(private applicationService: ApplicationService) {}
 
