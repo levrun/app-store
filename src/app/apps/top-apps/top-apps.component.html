@@ -2,10 +2,10 @@
 <div *ngIf="isDataAvailable">
 
 <div class="col-s8">
-  <p class="left as-heading">Top 5 applications</p>
+  <p class="left as-heading as-margin-bottom-top-small as-padding-bottom-top-small" (click)="showHide()">Top 5 applications</p>
 </div>
 <div class="right col-s4">
-   <a class="waves-effect waves-teal btn-flat" (click)="showHide()">{{showHideButtonTitle}}</a>
+   <a class="waves-effect waves-teal btn-flat as-margin-bottom-top-small as-padding-bottom-top-small" (click)="showHide()">{{showHideButtonTitle}}</a>
 </div>
 
 <div *ngIf="isShowTop5" materialize="carousel" class="carousel z-depth-3 as-margin-bottom-small">
