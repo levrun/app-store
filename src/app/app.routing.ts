@@ -1,7 +1,6 @@
-import { Routes, RouterModule } from "@angular/router";
-
-import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
-import { HomeComponent } from "./home.component";
+import { HomeComponent } from './home/home.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent },

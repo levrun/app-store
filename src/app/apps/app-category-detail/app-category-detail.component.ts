@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { ApplicationCategory } from "../models/application-category";
-import { ShoppingListService } from "../../shopping-list/shopping-list.service";
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
+import { ApplicationCategory } from '../models/application-category';
 import { ApplicationService } from '../services/application.service';
-
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
