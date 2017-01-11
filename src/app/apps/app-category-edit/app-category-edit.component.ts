@@ -1,17 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
-import { ApplicationService } from '../services/application.service';
 import { ApplicationCategory } from '../models/application-category';
-
+import { ApplicationService } from '../services/application.service';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'as-app-category-edit',
   templateUrl: './app-category-edit.component.html'
 })
-export class AppCategoryEditComponent implements OnInit, OnDestroy {
+export class AppCategoryEditComponent implements OnInit, OnDestroy, AfterViewInit {
 
   appCategoryForm: FormGroup;
   private appCategoryIndex: number;
@@ -26,10 +24,14 @@ export class AppCategoryEditComponent implements OnInit, OnDestroy {
 
   getNameOfTheForm() {
     if(this.isNew) {
-      return "Create new category";
+      return 'Create new category';
     } else {
-      return "Edit category";
+      return 'Edit category';
     }
+  }
+
+  ngAfterViewInit(): void {
+    Materialize.updateTextFields(); // in order to fix https://github.com/Dogfalo/materialize/issues/180
   }
 
   ngOnInit() {
