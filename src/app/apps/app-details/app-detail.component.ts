@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { Application } from "../../shared/application";
-import { ShoppingListService } from "../../shopping-list/shopping-list.service";
+import { Application } from '../../shared/application';
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { ApplicationService } from '../services/application.service';
-
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
@@ -52,7 +50,7 @@ export class AppDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onDownload() {
     // TODO
-    console.log("onDownload()");
+    console.log('onDownload()');
   }
 
   ngOnDestroy() {

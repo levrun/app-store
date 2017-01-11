@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
 import { ApplicationCategory } from '../apps/models/application-category';
 import { ApplicationService } from '../apps/services/application.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'as-side-nav',

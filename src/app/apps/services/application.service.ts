@@ -1,8 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import 'rxjs/Rx';
+import { Application } from '../../shared';
 import { ApplicationCategory } from '../models/application-category';
-import { Application } from "../../shared";
-import { Headers, Http, Response } from "@angular/http";
-import "rxjs/Rx";
+import { EventEmitter, Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
 
 @Injectable()
 export class ApplicationService {
@@ -81,7 +81,7 @@ export class ApplicationService {
   }
 
   storeData() {
-    console.log("storeData");
+    console.log('storeData');
     const body = JSON.stringify(this.applicationsCategories);
     const headers = new Headers({
       'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ export class ApplicationService {
           this.applicationsCategories = data;
           this.appsCategoriesChanged.emit(this.applicationsCategories);
         }
-      )
+      );
   }
 
 }
