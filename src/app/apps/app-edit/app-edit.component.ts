@@ -43,7 +43,7 @@ export class AppEditComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscription = this.route.params.subscribe(
       (params: any) => {
         this.appIndex = params['app_id'];
-        if (this.appIndex !== -1) {
+        if (this.appIndex != -1) { // it should be != so it works properly!
           this.isNew = false;
         }
         this.appCategoryIndex = params['id'];
