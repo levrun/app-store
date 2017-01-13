@@ -47,6 +47,10 @@ export class AppCategoryDetailComponent implements OnInit, OnDestroy, AfterViewI
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
     });
+
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
   }
 
   ngOnDestroy() {
