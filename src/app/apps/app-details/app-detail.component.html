@@ -17,15 +17,17 @@
 
 </div>
 
-<div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="{{selectedApplication.imagePath}}">
-  </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">more_vert</i></span>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">close</i></span>
-    <p>{{selectedApplication.description}}</p>
+<div class="col s6 m6">
+  <div class="card small">
+    <div class="card-image">
+      <img class="materialboxed" width="650" attr.data-caption="{{selectedApplication.name}} - {{selectedApplication.description}}" src="{{selectedApplication.imagePath}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{selectedApplication.name}}<i class="material-icons right">close</i></span>
+      <p>{{selectedApplication.description}}</p>
+    </div>
   </div>
 </div>

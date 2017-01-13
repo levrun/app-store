@@ -36,6 +36,10 @@ export class AppDetailComponent implements OnInit, OnDestroy, AfterViewInit {
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
     });
+
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
   }
 
 
