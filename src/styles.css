@@ -26,6 +26,13 @@
   padding-bottom: 10px;
 }
 
+.as-padding-bottom-top-left-right-small {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .mycard { 
   width:160px;
   height: 120px; 

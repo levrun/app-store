@@ -14,6 +14,7 @@ import { TopAppsComponent } from './top-apps/top-apps.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
+import { TruncatePipe } from '../pipes/truncate';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MaterializeModule } from 'angular2-materialize';
     AppCategoryEditComponent,
     AppListComponent,
     AppsStartComponent,
-    TopAppsComponent
+    TopAppsComponent,
+    TruncatePipe
   ],
   imports: [SharedModule,
             ReactiveFormsModule,
