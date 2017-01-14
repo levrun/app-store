@@ -1,6 +1,7 @@
 <div class="navbar-fixed hide-on-small-only">
   <nav>
     <div class="nav-wrapper cyan">
+      <a href="#" data-activates="side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li>
           <a data-activates="side-nav" id="btn-collapse-side-nav">
@@ -11,7 +12,8 @@
           <a class="brand-logo">App store</a>
         </li>
       </ul>
-      <ul class="right">
+
+      <ul class="right hide-on-med-and-down">
         <li><a [routerLink]="['/categories']">Categories</a></li>
         <li><a href="#" (click)="logout($event)">Login</a></li>
       </ul>

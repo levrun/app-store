@@ -17,6 +17,10 @@ export class HeaderComponent implements AfterViewInit {
           draggable: true
         }
       );
+
+      $( document ).ready(function(){
+        $('.button-collapse').sideNav();
+      });
   }
 
   onStore() {
