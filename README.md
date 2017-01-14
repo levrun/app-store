@@ -29,6 +29,5 @@ App divided into several components and modules:
 
 * AppModule - main module with AppComponent, HeaderComponent
 * CoreModule - DropdownDirective, HomeComponent
-* ShoppingListModule - ShoppingListComponent, ShoppingListAddComponent
 * SharedModule - just for the sake of showing how to share CommonModule to other modules
 * ApplicationsModule - AppsComponent, AppCategoryListComponent, AppCategoryItemComponent, AppCategoryDetailComponent, AppCategoryEditComponent, AppsStartComponent

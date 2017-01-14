@@ -1,5 +1,4 @@
 import { Application } from '../../shared/application';
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { ApplicationService } from '../services/application.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,7 +19,7 @@ export class AppEditComponent implements OnInit, OnDestroy, AfterViewInit {
 
   appForm: FormGroup;
 
-  constructor(private sls: ShoppingListService,
+  constructor(
     private route: ActivatedRoute,
     private applicatonService: ApplicationService,
     private router: Router,

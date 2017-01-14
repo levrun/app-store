@@ -1,4 +1,3 @@
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { ApplicationCategory } from '../models/application-category';
 import { ApplicationService } from '../services/application.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
@@ -15,8 +14,7 @@ export class AppCategoryDetailComponent implements OnInit, OnDestroy, AfterViewI
   selectedApplicationCategory: ApplicationCategory;
 
 
-  constructor(private sls: ShoppingListService,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private applicatonService: ApplicationService,
               private router: Router
             ) {}
@@ -37,10 +35,6 @@ export class AppCategoryDetailComponent implements OnInit, OnDestroy, AfterViewI
   onDelete() {
     this.applicatonService.deleteAppCategory(this.selectedApplicationCategory);
     this.router.navigate(['/categories']);
-  }
-
-  onAddToShoppingList() {
-    this.sls.addItems(this.selectedApplicationCategory.applications);
   }
 
   ngAfterViewInit(): void {

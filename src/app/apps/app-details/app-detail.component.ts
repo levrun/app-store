@@ -1,5 +1,4 @@
 import { Application } from '../../shared/application';
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
 import { ApplicationService } from '../services/application.service';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +15,7 @@ export class AppDetailComponent implements OnInit, OnDestroy, AfterViewInit {
   selectedApplication: Application;
 
 
-  constructor(private sls: ShoppingListService,
+  constructor(
               private route: ActivatedRoute,
               private applicatonService: ApplicationService,
               private router: Router
