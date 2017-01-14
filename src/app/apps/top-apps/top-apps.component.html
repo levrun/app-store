@@ -1,31 +1,24 @@
 
 <div *ngIf="isDataAvailable">
 
-<div class="col-s8">
-  <p class="left as-heading as-margin-bottom-top-small as-padding-bottom-top-small" (click)="showHide()">Top 5 applications</p>
-</div>
-<div class="right col-s4">
-   <a class="waves-effect waves-teal btn-flat as-margin-bottom-top-small as-padding-bottom-top-small" (click)="showHide()">{{showHideButtonTitle}}</a>
-</div>
+    <div materialize="carousel" class="carousel as-margin-bottom-small">
 
-<div *ngIf="isShowTop5" materialize="carousel" class="carousel z-depth-3 as-margin-bottom-small">
-
-   <a class="carousel-item" *ngFor="let application of applications; let i = index">
-     <div class="card small">
-       <div class="card-image waves-effect waves-block waves-light">
-         <img class="circle activator responsive-img" src="{{application.imagePath}}">
-       </div>
-       <div class="card-content">
-         <span class="truncate card-title activator grey-text text-darken-4">{{application.name}}<i class="material-icons right">more_vert</i></span>
-         <a routerLink="0/apps/{{i}}/details">Details</a>
-       </div>
-       <div class="card-reveal">
-         <span class="card-title grey-text text-darken-4">{{application.name}}<i class="material-icons right">close</i></span>
-         {{application.description}}
-       </div>
-     </div>
-   </a>
-</div>
+      <a class="carousel-item" *ngFor="let application of applications; let i = index">
+        <div class="card small">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="circle activator responsive-img" src="{{application.imagePath}}">
+          </div>
+          <div class="card-content">
+            <span class="truncate card-title activator grey-text text-darken-4">{{application.name}}<i class="material-icons right">more_vert</i></span>
+            <a routerLink="0/apps/{{i}}/details">Details</a>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{application.name}}<i class="material-icons right">close</i></span>
+            {{application.description}}
+          </div>
+        </div>
+      </a>
+    </div>
 
 </div>
 
@@ -44,5 +37,3 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="!isShowTop5" class="divider" style="margin:15px 0px;"></div>

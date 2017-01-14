@@ -1,20 +1,18 @@
 import { Application } from '../../shared/application';
 import { ApplicationCategory } from '../models/application-category';
 import { ApplicationService } from '../services/application.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 
 @Component({
   selector: 'as-top-apps',
   templateUrl: 'top-apps.component.html'
 })
-export class TopAppsComponent implements OnInit {
+export class TopAppsComponent implements OnInit, AfterViewInit  {
 
   applications: Application[] = [];
   selectedApplicationCategory: ApplicationCategory;
   isDataAvailable = false;
-  isShowTop5 = false;
-  showHideButtonTitle = 'Show';
 
   constructor(private applicationService: ApplicationService) {}
 
@@ -30,14 +28,10 @@ export class TopAppsComponent implements OnInit {
     this.applicationService.getApplicationsCategories();
   }
 
-  showHide() {
-    if(this.isShowTop5) {
-      this.isShowTop5 = false;
-      this.showHideButtonTitle = 'Show';
-    } else {
-      this.isShowTop5 = true;
-      this.showHideButtonTitle = 'Hide';
-    }
+  ngAfterViewInit(): void {
+   $(document).ready(function(){
+      $('.carousel').carousel();
+    });
   }
 
 }
