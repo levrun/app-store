@@ -1,9 +1,21 @@
 <div class="row">
   <div class="col-s8">
-    <p class="left as-heading">Applications from '{{selectedApplicationCategory?.name}}' category</p>
+    <a class="dropdown-button left as-heading waves-effect waves-teal btn-flat" data-activates='dropdown1'>'{{selectedApplicationCategory?.name}}' category</a>
+    
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li *ngFor="let applicationCategory of applicationsCategories; let i = index">
+        <a class="waves-effect waves-light" routerLink="/categories/{{i}}/apps">{{applicationCategory.name}}</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a class="waves-effect" routerLink="/categories/new">Create new category...</a>
+      </li>
+    </ul>
+
   </div>
   <div class="right col-s4">
-    <a class="waves-effect waves-light btn" (click)="toCategoryDetails()">Category details</a>
+    <a class="waves-effect waves-light btn" (click)="toCategoryDetails()">Details</a>
     <a class="waves-effect waves-light btn" (click)="addNewApplication()">Create app</a>
   </div>
 </div>
