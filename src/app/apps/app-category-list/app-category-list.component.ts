@@ -13,8 +13,12 @@ export class AppCategoryListComponent implements OnInit {
   constructor(private applicationService: ApplicationService) {}
 
   ngOnInit() {
+    console.log('AppCategoryListComponent ngOnInit');
     this.applicationService.appsCategoriesChanged.subscribe(
-      (applicationsCategories: ApplicationCategory[]) => this.applicationsCategories = applicationsCategories
+      (applicationsCategories: ApplicationCategory[]) => {
+        this.applicationsCategories = applicationsCategories;
+        console.log('appsCategoriesChanged.subscribe called during ngOnInit');
+      }
     );
     this.applicationService.getApplicationsCategories();
   }
