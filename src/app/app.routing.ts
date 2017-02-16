@@ -5,4 +5,4 @@ const APP_ROUTES: Routes = [
   { path: 'categories', loadChildren: 'app/apps/applications.module#ApplicationsModule' }
 ];
 
-export const routing = RouterModule.forRoot(APP_ROUTES);
+export const routing = RouterModule.forRoot(APP_ROUTES, { useHash: true });

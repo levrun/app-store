@@ -15,6 +15,7 @@ const APP_ROUTES: Routes = [
     { path: ':id/apps', component: AppListComponent },
     { path: ':id/edit', component: AppCategoryEditComponent },
     { path: ':id/apps/:app_id/details', component: AppDetailComponent },
+    { path: ':app_id/details', component: AppDetailComponent },
     { path: ':id/apps/:app_id/edit', component: AppEditComponent }
   ]}
 ];
